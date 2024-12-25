@@ -2,11 +2,13 @@ import 'package:bloc_test/cubit/area_of_circle_cubit.dart';
 import 'package:bloc_test/cubit/arithmetic_cubit.dart';
 import 'package:bloc_test/cubit/counter_cubit.dart';
 import 'package:bloc_test/cubit/simple_interest_cubit.dart';
+import 'package:bloc_test/cubit/speed_cubit.dart';
 import 'package:bloc_test/cubit/student_cubit.dart';
 import 'package:bloc_test/view/area_of_circle_view.dart';
 import 'package:bloc_test/view/arithemetic_cubit_view.dart';
 import 'package:bloc_test/view/counter_cubit_view.dart';
-import 'package:bloc_test/view/simple_interest_view.dart';
+import 'package:bloc_test/view/simple_interest_cubit_view.dart';
+import 'package:bloc_test/view/speed_cubit_view.dart';
 import 'package:bloc_test/view/student_cubit_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +19,8 @@ class DashboardCubit extends Cubit<void> {
     this._arithmeticCubit,
     this._studentCubit,
     this._areaOfCircleCubit,
-    this._interestCubit,
+    this._interestCubit, 
+    this._speedCubit,
   ) : super(null);
 
   final CounterCubit _counterCubit;
@@ -25,6 +28,7 @@ class DashboardCubit extends Cubit<void> {
   final StudentCubit _studentCubit;
   final AreaOfCircleCubit _areaOfCircleCubit;
   final SimpleInterestCubit _interestCubit;
+  final SpeedCubit _speedCubit;
 
   void openCounterView(BuildContext context) {
     Navigator.push(
@@ -67,6 +71,15 @@ class DashboardCubit extends Cubit<void> {
       context,
       MaterialPageRoute(
         builder: (_) => SimpleInterestView(),
+      ),
+    );
+  }
+
+  void openSpeedView(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SpeedView(),
       ),
     );
   }

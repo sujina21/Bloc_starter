@@ -76,8 +76,7 @@ class DashboardView extends StatelessWidget {
               ),
             ),
           ),
- 
-           Card(
+          Card(
             child: InkWell(
               onTap: () {
                 context.read<DashboardCubit>().openSimpleInterestView(context);
@@ -91,7 +90,20 @@ class DashboardView extends StatelessWidget {
               ),
             ),
           ),
- 
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openSpeedView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.speed, size: 48),
+                  Text('Speed Cubit'),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

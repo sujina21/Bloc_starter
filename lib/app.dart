@@ -3,6 +3,7 @@ import 'package:bloc_test/cubit/arithmetic_cubit.dart';
 import 'package:bloc_test/cubit/counter_cubit.dart';
 import 'package:bloc_test/cubit/dashboard_cubit.dart';
 import 'package:bloc_test/cubit/simple_interest_cubit.dart';
+import 'package:bloc_test/cubit/speed_cubit.dart';
 import 'package:bloc_test/cubit/student_cubit.dart';
 import 'package:bloc_test/view/dashboard_view.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
           BlocProvider(create: (context) => StudentCubit()),
           BlocProvider(create: (context) => AreaOfCircleCubit()),
           BlocProvider(create: (context) => SimpleInterestCubit()),
+          BlocProvider(create: (context) => SpeedCubit()),
           BlocProvider(
             create: (context) => DashboardCubit(
               context.read<CounterCubit>(),
@@ -27,6 +29,7 @@ class App extends StatelessWidget {
               context.read<StudentCubit>(),
               context.read<AreaOfCircleCubit>(),
               context.read<SimpleInterestCubit>(),
+              context.read<SpeedCubit>(),
             ),
           )
         ],
@@ -35,12 +38,5 @@ class App extends StatelessWidget {
           title: 'Flutter BloC',
           home: DashboardView(),
         ));
-
-    // return BlocProvider(
-    //   create: (context) => SimpleInterestCubit(),
-    //   child: MaterialApp(
-    //     home: SimpleInterestView(),
-    //   ),
-    // );
   }
 }
